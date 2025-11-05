@@ -9,11 +9,11 @@ on:
       min_installs:
         description: "Minimum installs"
         required: false
-        default: "50"
+        default: "900"
       max_installs:
         description: "Maximum installs"
         required: false
-        default: "800"
+        default: "1000"
 
 jobs:
   build:
@@ -43,8 +43,8 @@ jobs:
           cd runner
           MIN=${{ github.event.inputs.min_installs }}
           MAX=${{ github.event.inputs.max_installs }}
-          if [ -z "$MIN" ]; then MIN=50; fi
-          if [ -z "$MAX" ]; then MAX=800; fi
+          if [ -z "$MIN" ]; then MIN=900; fi
+          if [ -z "$MAX" ]; then MAX=1000; fi
           echo " Running downloader.py with min=$MIN max=$MAX"
           python3 downloader.py --min "$MIN" --max "$MAX"
       - name:  Extract all downloaded plugins and delete ZIPs
