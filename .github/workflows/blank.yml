@@ -45,8 +45,8 @@ jobs:
           MAX=${{ github.event.inputs.max_installs }}
           if [ -z "$MIN" ]; then MIN=200; fi
           if [ -z "$MAX" ]; then MAX=5000; fi
-          echo " Running download-worker.py with min=$MIN max=$MAX"
-          python3 download-worker.py --min "$MIN" --max "$MAX"
+          echo " Running downloader.py with min=$MIN max=$MAX"
+          python3 downloader.py --min "$MIN" --max "$MAX"
       - name:  Extract all downloaded plugins and delete ZIPs
         run: |
           cd runner
